@@ -71,6 +71,12 @@ class PosController extends Component
 		$this->IncreaseQuantity($product, $cant);
 	}
 
+    public function updatePrice(Product $product, $price = 1){
+        // $this->updatePrice($product, $price);
+        $cart = Cart::update($product->id, [
+            'price' => $price,
+        ]);
+    }
 	// actualizar cantidad item en carrito
 	public function updateQty(Product $product, $cant = 1)
 	{
@@ -93,11 +99,11 @@ class PosController extends Component
 	}
 
 
-	public function cleanValue($value) 
-	 { 
-	  return  number_format(str_replace(",","",$value), 2 , '.', ''); 
+	public function cleanValue($value)
+	 {
+	  return  number_format(str_replace(",","",$value), 2 , '.', '');
 	 }
-	 
+
 
 	// guardar venta
 	public function saveSale()
@@ -183,7 +189,7 @@ class PosController extends Component
 		/*
 		$products ='';
 		$info = "folio: $sale->id|";
-		$info .= "date: $sale->created_at|";		
+		$info .= "date: $sale->created_at|";
 		$info .= "cashier: {$sale->user->name}|";
 		$info .= "total: $sale->total|";
 		$info .= "items: $sale->items|";

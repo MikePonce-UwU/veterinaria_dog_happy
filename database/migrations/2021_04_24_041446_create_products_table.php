@@ -22,8 +22,9 @@ class CreateProductsTable extends Migration
             $table->integer('stock');
             $table->integer('alerts');
             $table->string('image',100)->nullable();
+            $table->boolean('dosis')->default(false);
 
-            $table->unsignedBigInteger('category_id');           
+            $table->unsignedBigInteger('category_id');
             $table->foreign('category_id')->references('id')->on('categories');
 
             $table->timestamps();
