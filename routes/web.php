@@ -16,6 +16,7 @@ use App\Http\Livewire\ProductsController;
 use App\Http\Controllers\ExportController;
 use App\Http\Livewire\CategoriesController;
 use App\Http\Livewire\ReporteClinicoController;
+use FontLib\Table\Type\name;
 
 Route::get('/', function () {
     return view('auth.login');
@@ -52,7 +53,7 @@ Route::middleware(['auth'])->group(function () {
     //reportes PDF
     Route::get('report/pdf/{user}/{type}/{f1}/{f2}', [ExportController::class, 'reportPDF']);
     Route::get('report/pdf/{user}/{type}', [ExportController::class, 'reportPDF']);
-
+    Route::get('reporte/pdf/{venta}', [ExportController::class, 'individualReporte'])->name('reporte.individual');
 
     //reportes EXCEL
     Route::get('report/excel/{user}/{type}/{f1}/{f2}', [ExportController::class, 'reporteExcel']);

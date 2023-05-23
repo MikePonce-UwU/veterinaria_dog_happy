@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Sale extends Model
 {
@@ -15,7 +16,9 @@ class Sale extends Model
     {
         return $this->belongsTo(User::class);
     }
-
+    public function detalleVenta():HasMany{
+        return $this->hasMany(SaleDetail::class);
+    }
     // MUTATORS
     /*
     public function setTotalAttribute($value)

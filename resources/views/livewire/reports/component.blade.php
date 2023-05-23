@@ -91,10 +91,10 @@
                                                 class="btn btn-dark btn-sm">
                                                 <i class="fas fa-list"></i>
                                             </button>
-                                            <button type="button" onclick="rePrint({{$d->id}})"
+                                            <a href="{{ route('reporte.individual', $d) }}" target="_blank"
                                                 class="btn btn-dark btn-sm">
                                                 <i class="fas fa-print"></i>
-                                            </button>
+                                            </a>
                                         </td>
                                     </tr>
                                     @endforeach
